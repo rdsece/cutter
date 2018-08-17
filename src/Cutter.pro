@@ -322,7 +322,8 @@ HEADERS  += \
     widgets/ColorSchemePrefWidget.h \
     dialogs/EditFunctionDialog.h \
     widgets/CutterTreeView.h \
-    widgets/ComboQuickFilterView.h
+    widgets/ComboQuickFilterView.h \
+    common/Json.h
 
 FORMS    += \
     dialogs/AboutDialog.ui \
