@@ -219,7 +219,8 @@ SOURCES += \
     common/ColorSchemeFileSaver.cpp \
     dialogs/EditFunctionDialog.cpp \
     widgets/CutterTreeView.cpp \
-    widgets/ComboQuickFilterView.cpp
+    widgets/ComboQuickFilterView.cpp \
+    dialogs/EditMethodDialog.cpp
 
 HEADERS  += \
     Cutter.h \
@@ -323,7 +324,8 @@ HEADERS  += \
     dialogs/EditFunctionDialog.h \
     widgets/CutterTreeView.h \
     widgets/ComboQuickFilterView.h \
-    common/Json.h
+    common/Json.h \
+    dialogs/EditMethodDialog.h
 
 FORMS    += \
     dialogs/AboutDialog.ui \
@@ -382,7 +384,8 @@ FORMS    += \
     dialogs/SetFunctionVarTypes.ui \
     widgets/ColorSchemePrefWidget.ui \
     widgets/CutterTreeView.ui \
-    widgets/ComboQuickFilterView.ui
+    widgets/ComboQuickFilterView.ui \
+    dialogs/EditMethodDialog.ui
 
 RESOURCES += \
     resources.qrc \
