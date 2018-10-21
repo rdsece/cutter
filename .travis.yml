@@ -2,12 +2,18 @@ language: cpp
 
 cache: ccache
 
+env:
+  global:
+    # COVERITY_SCAN_TOKEN
+    - secure: "Aaj2BAK6zPMFNwQVb7vqiznqnXpsI3oq+qNoHOcNvDWerQOau+zeocnHHCCXUllBOqb8oRFgebXHTwI2DsjfpcG9CSjRbuxCaiwHqex0IALx3TttxeNezYXldP4k/FzzIy9ziWUvxq+X0bhNUk/QD8B2AOvlP+4/7Wo/+5kW22Aitj13iNfCBnKX6TRWFTOlJ3VNLxoLZJPzBJBHJ/L+Botxwis+wPN1ys/95OV98IUaakYV48MPFMqQxSB6H6DE66Ag36UZpZfjCfWenWkLNPyM3SVIVY3sNCmcohYWr2Z3wynTOy2lZa1+ZbIkxXDtxhEXSFaHRIUs+gkKzxGyGlCqEq0ucxkqY30QLg2U/djLCcEGhAq2dgch9/gJs60ZqqinjGgwsnC2erdpBCkNPo7yMWRnoMPs9Fwwjv7yNSF0QYIR+JEhyNUYTcRBmvuqR9y+H4fl2u6LygDsyA6CXgLO+1aKB7FMiPuAuWENxHTZ44mdO74XOEuCoWVgQO1lVA0nOHwsPVSX1bvU+KkydPf4gdiqqep5ND0jV06Z29Gg2G2EdXj7PlT5HaQfMiy3t38Ve26LwsCEmatPg6oXmY/Z0OLLJSG5SPKMIj22RywB+rSxqLWif3WOn/BQi0HB7OdCE7BSsy3FffH0djhud3QD+WQQIcrfcabJhQmGK2M="
+
 branches:
   only:
   - master
   - debug
   - /^v\d.*$/
   - deploy-test
+  - coverity_scan
 
 matrix:
   include:
@@ -109,3 +115,12 @@ deploy:
     tags: true
     condition: $DEPLOY = 1
 
+addons:
+  coverity_scan:
+    # GitHub project metadata
+    project:
+      name: radareorg/cutter
+    notification_email: antide.petit@gmail.com
+    build_command_prepend: mkdir build_cov; cd build_cov; PKG_CONFIG_PATH="$CUSTOM_PYTHON_PREFIX/lib/pkgconfig" qmake ../src
+    build_command: make
+    branch_pattern: coverity_scan
